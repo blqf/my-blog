@@ -42,7 +42,7 @@ export default {
 }
 .avatar-container {
   margin: 0 auto;
-  transition: all 800ms linear;
+  transition: all 1000ms;
   &:hover {
     transform: rotateZ(360deg);
   }

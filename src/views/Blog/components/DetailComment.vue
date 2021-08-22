@@ -61,6 +61,7 @@ export default {
   },
   created() {
     this.$bus.$on('mainScroll', async (container) => {
+      console.log('detailComment mainScroll')
       if (this.isListLoading || !container) return;
       const range = 100;
       const dec = container.scrollHeight  - (container.scrollTop + container.clientHeight);

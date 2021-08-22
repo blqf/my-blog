@@ -28,11 +28,7 @@ function setImages() {
     }
 }
 
-function handleMainScroll() {
-    setImages();
-}
-
-eventBus.$on('mainScroll', debounce(handleMainScroll, 50));
+eventBus.$on('mainScroll', debounce(setImages, 50));
 
 export default {
     inserted(el, binding) {

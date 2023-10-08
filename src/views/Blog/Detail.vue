@@ -1,12 +1,12 @@
 <template>
   <Layout>
     <div ref="mainContainer" class="main-container" v-loading="isLoading">
-      <BlogDetail v-if="data" :blog="data" />
-      <BlogComment v-if="data" />
+      <DetailContent v-if="data" :blog="data" />
+      <DetailComment v-if="data" />
     </div>
     <template #right>
       <div class="right-container" v-loading="isLoading">
-        <BlogTOC v-if="data" :toc="data.toc" />
+        <DetailTOC v-if="data" :toc="data.toc" />
       </div>
     </template>
   </Layout>
@@ -14,9 +14,9 @@
 
 <script>
 import Layout from "@/components/Layout";
-import BlogDetail from "./components/BlogDetail";
-import BlogTOC from "./components/BlogTOC";
-import BlogComment from "./components/BlogComment";
+import DetailContent from "./components/DetailContent";
+import DetailTOC from "./components/DetailTOC";
+import DetailComment from "./components/DetailComment";
 import fetchData from "@/mixins/fetchData.js";
 import { getOneBlog } from "@/api/blog.js";
 import mainScroll from "@/mixins/mainScroll";
@@ -25,9 +25,9 @@ export default {
   mixins: [fetchData(null), mainScroll("mainContainer")],
   components: {
     Layout,
-    BlogDetail,
-    BlogTOC,
-    BlogComment,
+    DetailContent,
+    DetailTOC,
+    DetailComment,
   },
   methods: {
     async fetchData() {

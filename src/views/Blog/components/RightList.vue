@@ -14,7 +14,7 @@
         :class="{ active: item.isSelect }"
         >{{ item.additional }}</span
       >
-      <!-- 显示当前组件 -->
+      <!-- 递归显示当前组件 -->
       <RightList :dataList="item.children" @select="handleClick" />
     </li>
   </ul>

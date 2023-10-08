@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       originLoaded: false, // 源图片是否加载完成
-      everythingDone: false //是否一切尘埃落定，加载完成
+      everythingDone: false //是否一切尘埃落定(包括图片加载和外部事件处理)，加载完成
     };
   },
   computed: {
@@ -42,7 +42,7 @@ export default {
   methods: {
     handleLoad() { // 原图片加载后的回调 
       this.originLoaded = true;
-      this.$emit('load')
+      this.$emit('loaded');
       setTimeout(() => {
         this.everythingDone = true;
       }, this.duration);

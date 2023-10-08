@@ -9,7 +9,7 @@
       <ImageLoader
         :src="carousel.bigImg"
         :placeholder="carousel.midImg"
-        @load="this.showWords"
+        @loaded="this.showWords"
       />
     </div>
     <div class="title" ref="title">{{ carousel.title }}</div>
@@ -41,7 +41,7 @@ export default {
         return;
       }
       const extraWidth = this.innerSize.width - this.containerSize.width; // 多出来的宽度
-      const extraHeight = this.innerSize.height - this.containerSize.height; // 多出来的宽度
+      const extraHeight = this.innerSize.height - this.containerSize.height; // 多出来的高度
       const left = (-extraWidth / this.containerSize.width) * this.mouseX;
       const top = (-extraHeight / this.containerSize.height) * this.mouseY;
       return {
@@ -62,14 +62,14 @@ export default {
       this.$refs.title.style.opacity = 1;
       this.$refs.title.style.width = 0;
       this.$refs.title.style.transition = "1s linear";
-      this.$refs.title.clientWidth; //读取一下DOM属性，强制让浏览器重新渲染
+      this.$refs.title.clientWidth; //读取一下DOM属性，强制让浏览器重新渲染，否则浏览器会直接将宽度设置为最终宽度
       this.$refs.title.style.width = this.titleWidth + "px";
 
       // desc描述逐渐显示
       this.$refs.desc.style.opacity = 1;
       this.$refs.desc.style.width = 0;
       this.$refs.desc.style.transition = "2s 1s linear";
-      this.$refs.desc.clientWidth; //读取一下DOM属性，强制让浏览器重新渲染
+      this.$refs.desc.clientWidth; //读取一下DOM属性，强制让浏览器重新渲染，否则浏览器会直接将宽度设置为最终宽度
       this.$refs.desc.style.width = this.descWidth + "px";
     },
     setSize() {
